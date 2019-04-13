@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <title>Test</title>
+</head>
+<body>
+<h1 id="some"></h1>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div id="logo" class="navbar-brand bg-secondary" >Mus-Co <i class="fas fa-music"></i></div>
+    <button class="navbar-toggler" type="button"
+            data-toggle="collapse" data-target="#col"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="col">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Домой <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Чат</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Другое
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Объявления</a>
+                    <a class="dropdown-item" href="#">Рейтинг</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Пожаловаться</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#">Профиль</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<script src="https://www.gstatic.com/firebasejs/5.9.4/firebase.js"></script>
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyAAI-SqMAMI-UraXLMTSZrsPFEoxciMcxg",
+        authDomain: "chatactivity-7b747.firebaseapp.com",
+        databaseURL: "https://chatactivity-7b747.firebaseio.com",
+        projectId: "chatactivity-7b747",
+        storageBucket: "chatactivity-7b747.appspot.com",
+        messagingSenderId: "847169115768"
+    };
+    firebase.initializeApp(config);
+
+    var som = document.getElementById("some");
+    var db = firebase.database().ref().child('text');
+    db.on("value", snap => {som.innerText =  snap.val()});
+</script>
+</body>
+</html>
