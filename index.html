@@ -21,7 +21,7 @@
     <div class="collapse navbar-collapse" id="col">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Домой <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="#">Профиль <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Чат</a>
@@ -38,28 +38,18 @@
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link disabled" href="#">Профиль</a>
+                <a class="nav-link disabled" href="#">Выйти</a>
             </li>
         </ul>
     </div>
 </nav>
 <i class="far fa-address-book"></i>
-<script src="https://www.gstatic.com/firebasejs/5.9.4/firebase.js"></script>
-<script>
-    // Initialize Firebase
-    var config = {
-        apiKey: "AIzaSyAAI-SqMAMI-UraXLMTSZrsPFEoxciMcxg",
-        authDomain: "chatactivity-7b747.firebaseapp.com",
-        databaseURL: "https://chatactivity-7b747.firebaseio.com",
-        projectId: "chatactivity-7b747",
-        storageBucket: "chatactivity-7b747.appspot.com",
-        messagingSenderId: "847169115768"
-    };
-    firebase.initializeApp(config);
+<button id="signGoogle">Sign-in with google</button>
+<div id="Ava"  height="300px" width="500" style="background: blue"></div>
 
-    var som = document.getElementById("some");
-    var db = firebase.database().ref().child('text');
-    db.on("value", snap => {som.innerText =  snap.val()});
-</script>
+<script src="https://www.gstatic.com/firebasejs/5.9.4/firebase.js"></script>
+
+<script src="js/init.js"></script>
+<script src="js/myAuth.js"></script>
 </body>
 </html>
